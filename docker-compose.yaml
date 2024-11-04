@@ -1,0 +1,12 @@
+version: '3.8'  # Update to a more commonly used version, like '3.8'
+
+services:
+  playwright-test:
+    image: playwright-test
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run test  # Run Playwright tests inside the container
+    volumes:
+      - ./playwright-report:/app/playwright-report  # Correct syntax for volumes
+      - ./test-results:/app/test-results

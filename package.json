@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "playwright": "^1.48.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "@playwright/test": "^1.48.1",
+    "@types/node": "^22.7.6",
+    "allure-playwright": "^3.0.6",
+    "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "test": "npx playwright test --project=chromium"
+  }
+}
