@@ -11,6 +11,7 @@ const baseURL = process.env.ENVIRONMENT === 'development'
     : process.env.ENVIRONMENT === 'staging'
     ? process.env.STAGING_URL
     : process.env.PROD_URL;
+    : process.env.PROD_URL || 'https://automationexercise.com/';
 
 export default defineConfig<TestOptions>({
 
