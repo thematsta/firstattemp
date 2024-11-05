@@ -18,7 +18,7 @@ test.beforeEach( async ({page, }) => {
 });
 
 test.describe('Registration From tests found on the signup/register page @regression ', () => {
-    test.only('Enter valid credentials and sign up @smoke', async ({page}) => {
+    test('Enter valid credentials and sign up @smoke', async ({page}) => {
         const loginRegisterPage = new LoginRegisterPage(page);
         await loginRegisterPage.enterNewAccountDetails(process.env.NAME);
         await loginRegisterPage.enterAccountDetailsAndCreateAccount(process.env.PASSWORD);
