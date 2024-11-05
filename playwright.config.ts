@@ -10,7 +10,6 @@ const baseURL = process.env.ENVIRONMENT === 'development'
     ? process.env.DEV_URL
     : process.env.ENVIRONMENT === 'staging'
     ? process.env.STAGING_URL
-    : process.env.PROD_URL;
     : process.env.PROD_URL || 'https://automationexercise.com/';
 
 export default defineConfig<TestOptions>({
@@ -40,7 +39,7 @@ export default defineConfig<TestOptions>({
   ],
 
   use: {
-     baseURL: baseURL,
+      baseURL,
 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
