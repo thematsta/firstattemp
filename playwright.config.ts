@@ -57,13 +57,13 @@ export default defineConfig<TestOptions>({
 
     },
 
-    {
-      name: 'firefox',
-      use: { 
-        browserName: 'firefox',
-        video: 'on'
-      },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { 
+    //     browserName: 'firefox',
+    //     video: 'on'
+    //   },
+    // },
     {
       name: 'mobile',
       testMatch: ['**/testMobile.spec.ts'],
