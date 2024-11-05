@@ -3,6 +3,7 @@
     "playwright": "^1.48.1"
   },
   "devDependencies": {
+    "@argos-ci/playwright": "^3.9.1",
     "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.48.1",
     "@types/node": "^22.7.6",

@@ -1,5 +1,6 @@
 import { expect, Page } from '@playwright/test'
 import { AccountCreationHelper } from '../helpers /accountCreation'
+import { argosScreenshot } from "@argos-ci/playwright";
 
 
 
@@ -78,7 +79,8 @@ export class LoginRegisterPage{
 
     async logIntoAccount(email: string, password: string){
         await this.page.getByText('Signup / Login').click()
-        await expect(this.page.locator('.login-form')).toHaveScreenshot()
+        await argosScreenshot(this.page, "Login Page");
+        // await expect(this.page.locator('.login-form')).toHaveScreenshot()
         await expect(this.page.getByText('Login to your account')).toBeVisible()
         await this.page.locator('.login-form').getByRole('textbox', {name: 'Email Address'}).fill(email)
         await this.page.getByRole('textbox', {name: 'Password'}).fill(password)
@@ -89,6 +91,7 @@ export class LoginRegisterPage{
     }
     async verifyAccountLoggedIn(){
         await expect(this.page.getByText('Logged in as Matt')).toBeVisible()
+        await argosScreenshot(this.page, "Verify Logged in page");
     }
     async verifyLoginError(){
         await expect(this.page.getByText('Your email or password is incorrect')).toHaveAttribute('style', 'color: red;')
@@ -96,6 +99,7 @@ export class LoginRegisterPage{
     async logUserOut(){
         await this.page.getByText('Logout').click()
         await expect(this.page.getByAltText('Logouit')).not.toBeVisible()
+        await argosScreenshot(this.page, "log out page");
         expect(this.page.url()).toMatch('/')
 
     }

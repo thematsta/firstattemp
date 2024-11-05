@@ -24,6 +24,18 @@ export default defineConfig<TestOptions>({
     ['junit', {outputFile: 'test-results/junitReport.xml'}],
     // ["allure-playwright"],
     ['html'],
+    process.env.CI ? ["dot"] : ["list"],
+    // Add Argos reporter.
+    [
+      "@argos-ci/playwright/reporter",
+      {
+        // Upload to Argos on CI only.
+        uploadToArgos: !!process.env.CI,
+
+     
+        
+      },
+    ],
   ],
 
   use: {
@@ -32,7 +44,11 @@ export default defineConfig<TestOptions>({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    video: 'off'
+     // Collect trace when retrying the failed test.
+
+
+     // Capture screenshot after each test failure.
+     screenshot: "only-on-failure",
   },
 
   projects: [
